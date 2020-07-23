@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All my tasks</title>
+</head>
+<body>
+    <script>
+        const request = async (url, method, data)=>{
+            let options = {
+                method:methods,
+                headers:{
+                    'Content-Type':'application/json'
+                }
+            }
+            if(data && method.toLowerCAse() !== 'get') {
+                options.body = JSON.stringify(data)
+            }
+
+            let response = await fetch(url, options);
+            return response.json();
+        };
+
+        const start = async ()=>{
+            let taks = await request("/tasks", 'GET');
+            document.getElementById("tasks").innerHTML = 
+            tasks.map(task=>
+            `<div id='${task.id}'>
+                ${task.title}
+                 <input type="checkbox" class="completed" isChecked="${tasks.is_completed}">
+                 <button class="delete" id="delete_${task.id}">Deleted</button>
+                 </div>
+            `).join("");
+
+            document.querySelectorAll('.completed').forEach(box=>{
+                box.addEventListener('change', (evt)=>{
+                    let result = await request(`/edit-task/${evt.target.parentNode.id}/completed_task`, 'PATCH')
+                    console.log("result")
+                })
+            })
+        }; 
+    </script>
+</body>
+</html>
