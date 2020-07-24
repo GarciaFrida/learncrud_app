@@ -12,6 +12,9 @@
     <div id="taskcontainer">
     <div id="tasks"></div>
     </div>
+    <div id="secondcontainer">
+        <h2 id="h2">Notes to Self</h2>
+    </div>
     <script>
         const request = async (url, method, data)=>{
             let options = {
@@ -44,24 +47,37 @@
                 box.addEventListener('change', async (evt)=>{
                     let result = await request(`/edit-task/${evt.target.parentNode.id}/complete_task`, 'PATCH')
                     console.log(result);
+
                 })
+
+            document.getElementById("tasks").style.animationDirection = "reverse";
 
             })
 
 
 
             let h1 = document.getElementById("h1");
-            h1.style.color = "white";
+            h1.style.color = "rgb(246, 255, 248)";
             h1.style.fontFamily = "'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif";
             h1.style.alignSelf = "center";
 
+            let h2 = document.getElementById("h2");
+            h2.style.color = "rgb(246, 255, 248";
+            h1.style.fontFamily = "'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif";
+
             let h1Contain = document.getElementById("h1contain");
-            h1Contain.style.backgroundColor = "burlywood";
-            h1Contain.setAttribute
+            h1Contain.style.backgroundColor = "rgb(204, 227, 222)";
+            h1Contain.style.border = "thin solid rgb(234, 244, 244)"
+            h1Contain.style.borderRadius = "25px";
 
             let taskcontainer = document.getElementById("taskcontainer");
-            taskcontainer.style.backgroundColor = "rgb(163, 203, 219)";
+            taskcontainer.style.backgroundColor = "rgb(164, 195, 178)";
+            taskcontainer.style.border = "thin solid rgb(234, 244, 244)"
+            taskcontainer.style.borderRadius = "25px";
 
+            let secondContainer = document.getElementById("secondcontainer");
+            secondContainer.style.backgroundColor = "rgb(72, 169, 166)";
+            // secondcontainer.createTextNode("Notes to Self");
 
         
             
