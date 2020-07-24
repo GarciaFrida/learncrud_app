@@ -6,7 +6,10 @@
     <title>All My Tasks</title>
 </head>
 <body>
-    <div id="container">
+    <div id="h1contain">
+    <h1 id="h1">List of All My Tasks</h1>
+    </div>
+    <div id="taskcontainer">
     <div id="tasks"></div>
     </div>
     <script>
@@ -42,14 +45,36 @@
                     let result = await request(`/edit-task/${evt.target.parentNode.id}/complete_task`, 'PATCH')
                     console.log(result);
                 })
+
             })
 
-            document.querySelectorAll(".completed").forEach(box=> {
-                box.addEventListener('click', (evt)=> {
-                    if 
-                })
+
+
+            let h1 = document.getElementById("h1");
+            h1.style.color = "white";
+            h1.style.fontFamily = "'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif";
+            h1.style.alignSelf = "center";
+
+            let h1Contain = document.getElementById("h1contain");
+            h1Contain.style.backgroundColor = "burlywood";
+            h1Contain.setAttribute
+
+            let taskcontainer = document.getElementById("taskcontainer");
+            taskcontainer.style.backgroundColor = "rgb(163, 203, 219)";
+
+
+        
+            
+
+            
+
+
+            // document.querySelectorAll(".completed").forEach(box=> {
+            //     box.addEventListener('click', (evt)=> {
+            //         if 
+            //     })
                 
-            });
+            // });
 
             
 

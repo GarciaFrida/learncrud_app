@@ -6,6 +6,7 @@ const path = require('path');
 const db = pgp(connect);
 
 const port = 5005;
+app.use(express.static("/site/style.css"))
 
 // app.use(express.urlencoded({extended:true}))
 app.use(express.json())
